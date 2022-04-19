@@ -4,6 +4,7 @@ export const tasksSlice = createSlice({
   name: 'tasks',
   initialState: [],
   reducers: {
+    // TODO: hook this up to appsync
     addTask: (state, action) => {
       const task = action.payload.task
       console.log('task:', task)

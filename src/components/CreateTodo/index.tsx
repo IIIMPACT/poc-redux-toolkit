@@ -35,6 +35,7 @@ const CreateTodo: React.FC = () => {
   const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>): void => {
     e.preventDefault()
 
+    // TODO: when this is linked to Appsync, is there a way to do an optimistic update of the UI, in order to speed shit up
     dispatch(
       addTask({
         task: values,
@@ -42,7 +43,7 @@ const CreateTodo: React.FC = () => {
     )
     console.log('Submitting Form ...')
 
-    // router.push('/')
+    router.push('/')
   }
 
   return (
