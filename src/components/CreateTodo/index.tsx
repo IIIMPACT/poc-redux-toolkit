@@ -2,8 +2,10 @@ import { Close, Save } from '@mui/icons-material'
 import { Button } from '@mui/material'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { TextField, Form } from 'src/common'
 import { FormButtons } from 'src/common/FormButtons/styles'
+import { addTask } from 'src/redux/tasksSlice'
 
 interface Values {
   title: string
@@ -18,6 +20,7 @@ const initValues = {
 const CreateTodo: React.FC = () => {
   const [values, setValues] = useState<Values>({ ...initValues })
   const router = useRouter()
+  const dispatch = useDispatch()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target
@@ -32,9 +35,14 @@ const CreateTodo: React.FC = () => {
   const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>): void => {
     e.preventDefault()
 
+    dispatch(
+      addTask({
+        task: values,
+      })
+    )
     console.log('Submitting Form ...')
 
-    router.push('/')
+    // router.push('/')
   }
 
   return (

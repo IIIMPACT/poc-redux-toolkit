@@ -13,11 +13,13 @@
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.2",
+    "@reduxjs/toolkit": "^1.8.1",
     "aws-amplify": "^4.3.16",
     "case": "^1.6.3",
     "next": "12.1.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-redux": "^8.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
