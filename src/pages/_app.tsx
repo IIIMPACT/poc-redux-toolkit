@@ -5,8 +5,11 @@ import { CacheProvider, EmotionCache } from '@emotion/react'
 import { createEmotionCache, theme } from 'src/lib'
 import { Provider } from 'react-redux'
 import store from '../redux/store'
+import { Amplify } from 'aws-amplify'
+import { awsTodo } from 'src/aws-exports'
 
 const clientSideEmotionCache = createEmotionCache()
+Amplify.configure(awsTodo)
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache
