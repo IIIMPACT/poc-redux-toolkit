@@ -1,19 +1,20 @@
 import { useSelector } from 'react-redux'
 import { mockData } from 'src/lib'
+import { useListTodosQuery } from 'src/services/todo'
 import TodoItem from '../TodoItem'
 import * as Styled from './styles'
 
 const TodoList: React.FC = () => {
-  const todos = useSelector((state) => {
-    // @ts-ignore
-    return state.tasks
-  })
+  const { data, error, isLoading } = useListTodosQuery('')
+
+  // const todos = useSelector((state) => {
+  //   // @ts-ignore
+  //   return state.tasks
+  // })
 
   return (
     <Styled.TodoList>
-      {todos.map((item) => (
-        <TodoItem key={item.id} {...item} />
-      ))}
+      {data && data.map((item) => <TodoItem key={item.id} {...item} />)}
     </Styled.TodoList>
   )
 }
